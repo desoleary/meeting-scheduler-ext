@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module MeetingScheduler
+module MeetingSchedulerExt
   RSpec.describe Organizer do
     let(:instance) { described_class.new(meetings) }
 

@@ -96,8 +96,8 @@ Yes, can fit. One possible solution would be:
 Add this line to your application's Gemfile:
 
 ```shell
-$ git clone git@github.com:desoleary/meeting-scheduler.git
-$ cd meeting-scheduler
+$ git clone git@github.com:desoleary/meeting-scheduler-ext.git
+$ cd meeting-scheduler-ext
 $ bundle install
 $ bin/rspec
 ```

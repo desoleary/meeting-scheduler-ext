@@ -10,8 +10,8 @@ require 'delegate'
   meeting_collection
   organizer
 ].each do |filename|
-  require File.expand_path("../meeting-scheduler/#{filename}", Pathname.new(__FILE__).realpath)
+  require File.expand_path("../meeting-scheduler-ext/#{filename}", Pathname.new(__FILE__).realpath)
 end
 
 
-module MeetingScheduler; end
+module MeetingSchedulerExt ; end

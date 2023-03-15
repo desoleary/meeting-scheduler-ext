@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
-require File.expand_path('lib/meeting-scheduler/version', __dir__)
+require File.expand_path('lib/meeting-scheduler-ext/version', __dir__)
 
 Gem::Specification.new do |spec|
   spec.authors = ["Desmond O'Leary"]
   spec.email = ["desoleary@gmail.com"]
   spec.description = 'Optimized on-site/off-site meeting scheduler'
   spec.summary = 'Optimized on-site/off-site meeting scheduler'
-  spec.homepage = "https://github.com/desoleary/meeting-scheduler"
+  spec.homepage = "https://github.com/desoleary/meeting-scheduler-ext"
   spec.license = "MIT"
 
   spec.files = `git ls-files`.split($OUTPUT_RECORD_SEPARATOR)
   spec.executables = spec.files.grep(%r{^exe/}).map { |f| File.basename(f) }
-  spec.name = "meeting-scheduler"
+  spec.name = "meeting-scheduler-ext"
   spec.require_paths = ["lib"]
-  spec.version = MeetingScheduler::VERSION
+  spec.version = MeetingSchedulerExt::VERSION
   spec.required_ruby_version = ">= 2.7"
 
   spec.metadata["homepage_uri"] = spec.homepage

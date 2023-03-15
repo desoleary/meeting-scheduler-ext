@@ -1,4 +1,4 @@
-module MeetingScheduler
+module MeetingSchedulerExt
   RSpec.describe Meeting do
     describe "initialize" do
       subject(:meeting) { described_class.new(name, duration, type) }

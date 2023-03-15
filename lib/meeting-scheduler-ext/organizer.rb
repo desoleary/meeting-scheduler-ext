@@ -1,4 +1,4 @@
-module MeetingScheduler
+module MeetingSchedulerExt
   class Organizer
     START_WORK = 9.0
     END_WORK = 17.0

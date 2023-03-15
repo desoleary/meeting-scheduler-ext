@@ -1,4 +1,4 @@
-module MeetingScheduler
+module MeetingSchedulerExt
   class MeetingCollection < SimpleDelegator
     def initialize(meetings)
       meetings = meetings.map do |meeting|

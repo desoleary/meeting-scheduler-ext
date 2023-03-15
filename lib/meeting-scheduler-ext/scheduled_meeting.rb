@@ -1,4 +1,4 @@
-module MeetingScheduler
+module MeetingSchedulerExt
   class ScheduledMeeting
     attr_reader :meeting, :start_at, :end_at
 

@@ -1,4 +1,4 @@
-module MeetingScheduler
+module MeetingSchedulerExt
   class Meeting
     MEETING_TYPES = %i[onsite offsite].freeze
 
