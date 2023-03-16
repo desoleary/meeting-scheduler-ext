@@ -31,6 +31,14 @@
         - any errors encountered can be added with context
   - Introduce a UI that might allow the user to opt in and out of meetings e.g. we notice we cannot schedule all today so maybe pick and choose.
 
+#### Possible environment improvements
+  - Make use of the likes of `[overcommit](https://github.com/sds/overcommit)` or `[husky](https://github.com/typicode/husky)`
+  - Introduce `.editorconfig` to help maintain consistent coding styles and provides better IDE integration
+  - Make use of `bullet` if we are using DB interactions in order to detect N+1 issues etc.
+  - Automate tasks on GitHub
+    - `Bundler Audit`
+   
+
 #### Edge cases/additional features:
   - Timezones: can handle and display time zones accurately
   - Suggest alternative time slots (maybe next day)

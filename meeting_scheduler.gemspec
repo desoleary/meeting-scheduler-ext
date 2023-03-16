@@ -23,10 +23,13 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'activesupport', '~> 7.0.4.2'
   spec.add_runtime_dependency 'rordash', '~> 0.1.2' # Created myself recently.
+  spec.add_runtime_dependency 'light-service-ext', '~> 0.1.4' # Created myself recently.
 
   spec.add_development_dependency("codecov", "~> 0.6.0")
   spec.add_development_dependency("rake", "~> 13.0.6")
   spec.add_development_dependency("rspec", "~> 3.12.0")
   spec.add_development_dependency("simplecov", "~> 0.21.2")
+  spec.add_development_dependency("dry-validation-matchers", "~> 1.2", ">= 1.2.2")
+
   spec.metadata['rubygems_mfa_required'] = 'true'
 end

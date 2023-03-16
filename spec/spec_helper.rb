@@ -3,6 +3,8 @@
 require File.join(__dir__, "..", 'dev', 'setup')
 require Pathname.new(__dir__).realpath.join('coverage_helper').to_s
 
+require 'dry-validation-matchers'
+
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = ".rspec_status"

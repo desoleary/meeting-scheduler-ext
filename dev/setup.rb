@@ -7,6 +7,7 @@ require 'rspec/core'
 require 'active_support/core_ext/enumerable'
 require 'active_support/core_ext/object/blank'
 require 'rordash'
+require 'light-service-ext'
 
 # Sets up environment for running specs and via irb e.g. `$ irb -r ./dev/setup`
 
