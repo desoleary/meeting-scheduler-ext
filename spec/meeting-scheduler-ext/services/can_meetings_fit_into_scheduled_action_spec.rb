@@ -47,7 +47,16 @@ module MeetingSchedulerExt
 
       it 'fails the context and returns appropriate error message' do
         expect(executed_action.failure?).to be_truthy
+
+        params = executed_action.params
+        expect(params.keys).to include(*%i[meetings
+                                           current_time
+                                           onsite_meetings
+                                           offsite_meetings
+                                           schedule_meetings_txt])
+
         expect(errors).to eql(meetings: "No, can’t fit.")
+        expect(params[:schedule_meetings_txt]).to eql("No, can’t fit.")
       end
     end
   end

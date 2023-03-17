@@ -1,6 +1,54 @@
 # MeetingScheduler
 
-## MajorClarity by Paper
+## Installation
+
+Add this line to your application's Gemfile:
+
+```shell
+$ git clone git@github.com:desoleary/meeting-scheduler-ext.git
+$ cd meeting-scheduler-ext
+$ bundle install
+$ bin/rspec
+```
+
+## Console
+run `irb -r ./dev/setup` for an interactive prompt.
+
+### Usage
+
+###### Meetings within 8 hour work day
+```ruby
+meetings = [
+  { name: 'Meeting 1', duration: 3, type: :onsite },
+  { name: 'Meeting 2', duration: 2, type: :offsite },
+  { name: 'Meeting 3', duration: 1, type: :offsite },
+  { name: 'Meeting 4', duration: 0.5, type: :onsite }
+]
+
+ctx = CreateMeetingScheduleOrganizer.call(meetings: meetings)
+ctx.success? #=> true
+ctx.params[:schedule_meetings_txt]
+# => 
+# Yes, can fit. One possible solution would be:
+# 9:00 - 12:00 - Meeting 1
+# 12:00 - 12:30 - Meeting 4
+# 1:00 - 3:00 - Meeting 2
+# 3:00 - 4:00 - Meeting 3
+```
+
+###### Meetings exceeding 8 hour work day
+```ruby
+meetings = [
+  { name: 'Meeting 1', duration: 4, type: :offsite },
+  { name: 'Meeting 2', duration: 4, type: :offsite }
+]
+
+ctx = CreateMeetingScheduleOrganizer.call(meetings: meetings)
+ctx.success? #=> false
+ctx.params[:schedule_meetings_txt]
+# => 
+# No, can’t fit.
+```
 
 ### Technical Exercise
 
@@ -90,20 +138,6 @@ Yes, can fit. One possible solution would be:
 10:00 - 10:30 - Meeting 1
 11:00 - 2:00 - Meeting 4
 ```
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-```shell
-$ git clone git@github.com:desoleary/meeting-scheduler-ext.git
-$ cd meeting-scheduler-ext
-$ bundle install
-$ bin/rspec
-```
-
-## Console
-run `irb -r ./dev/setup` for an interactive prompt.
 
 ## Contributing
 

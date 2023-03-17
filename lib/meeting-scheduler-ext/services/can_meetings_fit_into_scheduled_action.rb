@@ -10,9 +10,14 @@ module MeetingSchedulerExt
       context.add_params(onsite_meetings: MeetingCollection.new(onsite_meetings))
       context.add_params(offsite_meetings: MeetingCollection.new(offsite_meetings))
 
-      # NOTE: `add_errors!` fails the organizer's context.
-      #        Ensure subsequent actions are prevented from being inadvertently called
-      context.add_errors!(meetings: 'No, can’t fit.') unless can_schedule_meetings?(context)
+      unless can_schedule_meetings?(context)
+        no_fit_error_message = 'No, can’t fit.'
+        context.add_params(schedule_meetings_txt: no_fit_error_message)
+
+        # NOTE: `add_errors!` fails the organizer's context.
+        #        Ensure subsequent actions are prevented from being inadvertently called
+        context.add_errors!(meetings: no_fit_error_message)
+      end
     end
 
     class << self

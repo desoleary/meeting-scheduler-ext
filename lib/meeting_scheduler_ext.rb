@@ -14,7 +14,6 @@ require 'delegate'
   meeting
   scheduled_meeting
   meeting_collection
-  organizer
   contracts/create_meeting_schedule_contract
   services/create_meeting_schedule_validator_action
   services/can_meetings_fit_into_scheduled_action
