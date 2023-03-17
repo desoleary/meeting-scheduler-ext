@@ -2,6 +2,8 @@ module MeetingSchedulerExt
   class ScheduledMeeting
     attr_reader :meeting, :start_at, :end_at
 
+    delegate :name, :duration, :type, to: :meeting
+
     def initialize(meeting, current_time)
       @meeting = meeting
       @start_at = current_time
@@ -11,6 +13,10 @@ module MeetingSchedulerExt
 
     def to_s
       "#{formatted_start_time} - #{formatted_end_time} - #{meeting.name}"
+    end
+
+    def to_h
+      { name: name, duration: duration, type: type }
     end
 
     private
