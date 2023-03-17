@@ -7,5 +7,3 @@ module MeetingSchedulerExt
     end
   end
 end
-
-ctx = CreateMeetingScheduleOrganizer.call(input)

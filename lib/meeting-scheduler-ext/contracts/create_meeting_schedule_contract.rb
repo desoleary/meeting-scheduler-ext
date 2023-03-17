@@ -13,7 +13,7 @@ module MeetingSchedulerExt
     end
 
     rule(:meetings).each do
-      if value.to_s.split(".")[1].length > DURATION_MAX_PRECISION
+      if value[:duration].to_s.split(".")[1].length > DURATION_MAX_PRECISION
         key.failure("number of decimal number places must not exceed #{DURATION_MAX_PRECISION}")
       end
     end

@@ -3,7 +3,8 @@
 module MeetingSchedulerExt
   RSpec.describe CreateMeetingScheduleValidatorAction do
     let(:overrides) { {} }
-    let(:input) { { name: 'Sample Meeting', duration: 1, type: Type::ONSITE }.merge(overrides) }
+    let(:meeting) { { name: 'Sample Meeting', duration: 1, type: Type::ONSITE }.merge(overrides) }
+    let(:input) { { meetings: [meeting] } }
     let(:ctx) { ApplicationContext.make_with_defaults(input) }
     let(:errors) { context.errors }
 
@@ -13,7 +14,8 @@ module MeetingSchedulerExt
       it 'returns promised params and empty errors' do
         expect(context.success?).to be_truthy
         expect(errors).to be_empty
-        expect(context[:params].keys).to eql(%i[name duration type])
+        expect(context[:params].keys).to eql(%i[meetings])
+        expect(context.dig(:params, :meetings, 0).keys).to eql(%i[name duration type])
       end
     end
 
@@ -22,8 +24,9 @@ module MeetingSchedulerExt
 
       it 'returns promised params and empty errors' do
         expect(context.failure?).to be_truthy
-        expect(errors).to eql({ name: ["must be filled"] })
-        expect(context[:params].keys).to eql(%i[name duration type])
+        expect(errors).to eql({ meetings: { 0 => { name: ["must be filled"] } } })
+        expect(context[:params].keys).to eql(%i[meetings])
+        expect(context.dig(:params, :meetings, 0).keys).to eql(%i[name duration type])
       end
     end
   end

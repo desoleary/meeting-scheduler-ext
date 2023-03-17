@@ -12,9 +12,9 @@ module MeetingSchedulerExt
 
     subject(:executed_organizer) { described_class.call(input) }
 
-
     it "created schedule successfully" do
-      expect(errors).to eql('')
+      expect(executed_organizer).to be_success
+      expect(errors).to be_blank
     end
   end
 end
