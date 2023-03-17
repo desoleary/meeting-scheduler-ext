@@ -4,6 +4,7 @@ require File.join(__dir__, "..", 'dev', 'setup')
 require Pathname.new(__dir__).realpath.join('coverage_helper').to_s
 
 require 'dry-validation-matchers'
+require 'light-service/testing'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
